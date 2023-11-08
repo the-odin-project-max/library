@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Library</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/script.js" defer></script>
+</head>
+
+<body>
+	<header>
+		<h1 class="main-title">Library</h1>
+	</header>
+	<main>
+		<ul id="books-list">
+		</ul>
+		<form action="" class="add-book-form" onsubmit="return false;">
+			<label for="title-input">Title</label>
+			<input type="text" class="form-text-input" id="title-input" placeholder="Lord of the rings">
+			
+			<label for="author-input">Author</label>
+			<input type="text" class="form-text-input" id="author-input" placeholder="Tolkien">
+			
+			<label for="pages-input">Pages #</label>
+			<input type="number" class="form-text-input" id="pages-input" placeholder="203">
+			
+			<label for="read-input">Did you read this book?</label>
+			<input type="checkbox" id="read-input">
+
+			<button class="add-book-btn" id="add-book-btn">Add book</button>
+		</form>
+	</main>
+	<footer>
+		<p class="credits"></p>
+	</footer>
+</body>
+
+</html>
