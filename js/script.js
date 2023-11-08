@@ -20,6 +20,7 @@ function toggleButtons() {
 		item.addEventListener('click', event => {
 			const index = item.dataset.index;
 			myLibrary[index].readToggle();
+			renderBooksList();
 		});
 	});
 	
