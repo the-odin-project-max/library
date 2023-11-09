@@ -53,6 +53,12 @@ function addBookToLibrary() {
 	let newBook = new Book(title, author, pages, read);
 	myLibrary.push(newBook);
 	renderBooksList();
+
+	document.getElementById('title-input').value = "";
+	document.getElementById('author-input').value = "";
+	document.getElementById('pages-input').value = "";
+	document.getElementById('read-input').checked = false;
+	
 	dialog.close();
 }
 
