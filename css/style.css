@@ -97,6 +97,7 @@ button.book-delete-btn, .book-unread-btn {
 
 	height: 2rem;
 	width: 10rem;
+	font-size: large;
 }
 
 .close-form-btn {
