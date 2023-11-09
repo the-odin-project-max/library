@@ -16,7 +16,7 @@ function Book(title, author, pages, read) {
 }
 
 function toggleButtons() {
-	document.querySelectorAll('.book-read-btn').forEach(item => {
+	document.querySelectorAll('.book-read-btn, .book-unread-btn').forEach(item => {
 		item.addEventListener('click', event => {
 			const index = item.dataset.index;
 			myLibrary[index].readToggle();
@@ -51,13 +51,13 @@ function renderBooksList() {
 		li.setAttribute('class', 'book-item');
 		li.innerHTML = `
 		<div class="book-info">
-		<p class="book-title">${myLibrary[i].title}</p>
+		<p class="book-title">"${myLibrary[i].title}"</p>
 		<p class="book-author">${myLibrary[i].author}</p>
-		<p class="book-pages">${myLibrary[i].pages}</p>
+		<p class="book-pages">${myLibrary[i].pages} pages</p>
 		<p class="book-read">${myLibrary[i].read ? "Read" : "Not Read"}</p>
 	</div>
 	<div class="book-actions">
-		<button class="book-read-btn" data-index="${i}">${myLibrary[i].read ? "Unread" : "Read"}</button>
+		<button class=${myLibrary[i].read ? "book-unread-btn" : "book-read-btn"} data-index="${i}">${myLibrary[i].read ? "Unread" : "Read"}</button>
 		<button class="book-delete-btn" data-index="${i}">Delete</button>
 	</div>
 `;
@@ -73,7 +73,6 @@ function removeBookFromLibrary(i) {
 
 
 document.getElementById('add-book-btn').addEventListener('click', addBookToLibrary);
-
 renderBooksList();
 
 
