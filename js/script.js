@@ -1,8 +1,8 @@
-let book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, true);
-let book2 = new Book('The Lord of the Rings', 'J.R.R. Tolkien', 1137, false);
-let book3 = new Book('The Silmarillion', 'J.R.R. Tolkien', 365, true);
+// let book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, true);
+// let book2 = new Book('The Lord of the Rings', 'J.R.R. Tolkien', 1137, false);
+// let book3 = new Book('The Silmarillion', 'J.R.R. Tolkien', 365, true);
 
-const myLibrary = [book1, book2, book3];
+const myLibrary = [];
 
 // Get the dialog element
 const dialog = document.querySelector("dialog");
