@@ -14,23 +14,33 @@
 		<h1 class="main-title">Library</h1>
 	</header>
 	<main>
+
+		<button class="open-form-btn">+ Add Book</button>
+
 		<ul id="books-list">
 		</ul>
-		<form action="" class="add-book-form" onsubmit="return false;">
-			<label for="title-input">Title</label>
-			<input type="text" class="form-text-input" id="title-input" placeholder="Lord of the rings">
-			
-			<label for="author-input">Author</label>
-			<input type="text" class="form-text-input" id="author-input" placeholder="Tolkien">
-			
-			<label for="pages-input">Pages #</label>
-			<input type="number" class="form-text-input" id="pages-input" placeholder="203">
-			
-			<label for="read-input">Did you read this book?</label>
-			<input type="checkbox" id="read-input">
 
-			<button class="add-book-btn" id="add-book-btn">Add book</button>
-		</form>
+		<dialog class="add-book-form-dialog">
+			<div class="dialog-header">
+				<h2 class="form-title">Add Book</h2>
+				<button class="close-form-btn" autofocus>X</button>
+			</div>
+			<form action="" class="add-book-form" onsubmit="return false;">
+				<label for="title-input">Title</label>
+				<input type="text" name="title-input" class="form-text-input" id="title-input" placeholder="Lord of the rings" required>
+
+				<label for="author-input">Author</label>
+				<input type="text" name="author-input" class="form-text-input" id="author-input" placeholder="Tolkien" required>
+
+				<label for="pages-input">Pages #</label>
+				<input type="number" name="pages-input" class="form-text-input" id="pages-input" placeholder="203" required>
+
+				<label for="read-input">Did you read this book?</label>
+				<input type="checkbox" id="read-input">
+
+				<button type="submit" class="add-book-btn" id="add-book-btn">Add book</button>
+			</form>
+		</dialog>
 	</main>
 	<footer>
 		<p class="credits"></p>

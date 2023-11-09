@@ -4,6 +4,12 @@ let book3 = new Book('The Silmarillion', 'J.R.R. Tolkien', 365, true);
 
 const myLibrary = [book1, book2, book3];
 
+// Get the dialog element
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector(".open-form-btn");
+const closeButton = document.querySelector(".close-form-btn");
+
+
 function Book(title, author, pages, read) {
 	this.title = title;
 	this.author = author;
@@ -23,7 +29,7 @@ function toggleButtons() {
 			renderBooksList();
 		});
 	});
-	
+
 	document.querySelectorAll('.book-delete-btn').forEach(item => {
 		console.log("item");
 		item.addEventListener('click', event => {
@@ -36,11 +42,18 @@ function addBookToLibrary() {
 	let title = document.getElementById('title-input').value;
 	let author = document.getElementById('author-input').value;
 	let pages = document.getElementById('pages-input').value;
+
+	if(title == "" || author == "" || pages == "") {
+		// alert("Please fill all the fields");
+		return;
+	}
+
 	let readCheckbox = document.getElementById('read-input');
 	let read = readCheckbox.checked ? true : false;
 	let newBook = new Book(title, author, pages, read);
 	myLibrary.push(newBook);
 	renderBooksList();
+	dialog.close();
 }
 
 function renderBooksList() {
@@ -70,6 +83,16 @@ function removeBookFromLibrary(i) {
 	myLibrary.splice(i, 1);
 	renderBooksList();
 }
+
+// "Show the dialog" button opens the dialog modally
+showButton.addEventListener("click", () => {
+	dialog.showModal();
+});
+
+// "Close" button closes the dialog
+closeButton.addEventListener("click", () => {
+	dialog.close();
+});
 
 
 document.getElementById('add-book-btn').addEventListener('click', addBookToLibrary);
