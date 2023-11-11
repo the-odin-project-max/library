@@ -73,7 +73,6 @@ class Library {
 		});
 
 		document.querySelectorAll('.book-delete-btn').forEach(item => {
-			console.log("item");
 			item.addEventListener('click', event => {
 				this.removeBookFromLibrary(item.dataset.index);
 			})
@@ -85,33 +84,34 @@ class Library {
 		this.books.push(newBook);
 
 	}
-}
 
-function addBookButtonClicked() {
-	let title = document.getElementById('title-input').value;
-	let author = document.getElementById('author-input').value;
-	let pages = document.getElementById('pages-input').value;
-
-	if (title == "" || author == "" || pages == "") {
-		// alert("Please fill all the fields");
-		return;
+	addBookButtonClicked = () => {
+		let title = document.getElementById('title-input').value;
+		let author = document.getElementById('author-input').value;
+		let pages = document.getElementById('pages-input').value;
+	
+		if (title == "" || author == "" || pages == "") {
+			// alert("Please fill all the fields");
+			return;
+		}
+	
+		let readCheckbox = document.getElementById('read-input');
+		let read = readCheckbox.checked ? true : false;
+	
+		let newBook = new Book(title, author, pages, read);
+		this.addBookToLibrary(newBook);
+	
+		this.renderBooksList();
+	
+		document.getElementById('title-input').value = "";
+		document.getElementById('author-input').value = "";
+		document.getElementById('pages-input').value = "";
+		document.getElementById('read-input').checked = false;
+	
+		dialog.close();
 	}
-
-	let readCheckbox = document.getElementById('read-input');
-	let read = readCheckbox.checked ? true : false;
-
-	let newBook = new Book(title, author, pages, read);
-	myLibrary.addBookToLibrary(newBook);
-
-	myLibrary.renderBooksList();
-
-	document.getElementById('title-input').value = "";
-	document.getElementById('author-input').value = "";
-	document.getElementById('pages-input').value = "";
-	document.getElementById('read-input').checked = false;
-
-	dialog.close();
 }
+
 
 // "Show the dialog" button opens the dialog modally
 showButton.addEventListener("click", () => {
@@ -124,9 +124,8 @@ closeButton.addEventListener("click", () => {
 });
 
 let myLibrary = new Library();
-console.log(myLibrary.getBooks());
 
-document.getElementById('add-book-btn').addEventListener('click', addBookButtonClicked);
+document.getElementById('add-book-btn').addEventListener('click', myLibrary.addBookButtonClicked);
 myLibrary.renderBooksList();
 
 
